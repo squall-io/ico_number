@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:ico_number/icons.dart';
+import 'package:ico_number/widget.result.dart';
 
 
 class IconView extends StatelessWidget {
@@ -59,10 +60,10 @@ class IconView extends StatelessWidget {
         onPressed: () =>
           Navigator
             .of(context)
-            .push(
+            .pushReplacement(
               MaterialPageRoute(
                 builder: (context) =>
-                null
+                  Result(_icons.elementAt(0)),
               ),
             ),
       ),
