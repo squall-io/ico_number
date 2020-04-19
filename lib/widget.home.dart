@@ -38,7 +38,7 @@ class HomeWidget extends StatelessWidget {
                 .push(
               MaterialPageRoute(
                   builder: (context) =>
-                  IconView(),
+                    IconView(),
               ),
             ),
       ),
