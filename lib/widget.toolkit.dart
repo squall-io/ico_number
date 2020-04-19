@@ -19,14 +19,17 @@ class Toolkit {
       child: Icon(iconData),
       backgroundColor: Colors.purple,
       onPressed: () =>
-        Navigator
-          .of(context)
-          .pushReplacement(
-            MaterialPageRoute(
-              builder: (context) =>
-                target()
-            )
-        ),
+        Toolkit.navigateTo(context, target),
+    );
+
+  static void navigateTo(BuildContext context, Widget target()) =>
+    Navigator
+      .of(context)
+      .pushReplacement(
+        MaterialPageRoute(
+          builder: (context) =>
+            target()
+        )
     );
 
 }
