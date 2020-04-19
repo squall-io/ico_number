@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ico_number/widget.home.dart';
 import 'package:ico_number/widget.toolkit.dart';
 
 
@@ -38,7 +39,11 @@ class Result extends StatelessWidget {
         ),
       ),
       appBar: Toolkit.getAppBar('IcoNumber | Result'),
-      floatingActionButton: Toolkit.getFloatingActionButton(Icons.cached),
+      floatingActionButton: Toolkit.getFloatingActionButton(
+        target: () => HomeWidget(),
+        iconData: Icons.cached,
+        context: context,
+      ),
     );
 
 }

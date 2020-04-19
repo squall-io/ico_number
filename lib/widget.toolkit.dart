@@ -10,11 +10,22 @@ class Toolkit {
       backgroundColor: Colors.purple,
     );
 
-  static getFloatingActionButton(IconData iconData, { void onPressed() }) =>
+  static getFloatingActionButton<A1>({
+    @required BuildContext context,
+    @required IconData iconData,
+    @required Widget target(),
+  }) =>
     FloatingActionButton(
-      onPressed: onPressed,
       child: Icon(iconData),
       backgroundColor: Colors.purple,
+      onPressed: () =>
+        Navigator
+          .of(context)
+          .pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) =>
+                target()
+            ), (route) => true),
     );
 
 }

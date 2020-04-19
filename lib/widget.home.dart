@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:ico_number/widget.icon-view.dart';
 import 'package:ico_number/widget.toolkit.dart';
 
 
@@ -27,8 +28,11 @@ class HomeWidget extends StatelessWidget {
         future: rootBundle.loadString("assets/how-to.md"),
       ),
       appBar: Toolkit.getAppBar('IcoNumber | Rules'),
-      floatingActionButton: Toolkit.getFloatingActionButton(Icons.play_arrow),
+      floatingActionButton: Toolkit.getFloatingActionButton(
+        iconData: Icons.play_arrow,
+        target: () => IconView(),
+        context: context,
+      ),
     );
 
 }
-
