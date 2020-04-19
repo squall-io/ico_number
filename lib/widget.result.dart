@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ico_number/widget.home.dart';
+import 'package:ico_number/widget.toolkit.dart';
 
 
 class Result extends StatelessWidget {
@@ -11,9 +12,6 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
     Scaffold(
-      appBar: AppBar(
-        title: Text('IcoNumber | Result'),
-      ),
       body: Padding(
         padding: EdgeInsets.all(10),
         child: ListView(
@@ -40,6 +38,7 @@ class Result extends StatelessWidget {
           ],
         ),
       ),
+      appBar: Toolkit.getAppBar('IcoNumber | Result'),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.cached),
         onPressed: () =>
