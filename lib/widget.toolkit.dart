@@ -21,11 +21,12 @@ class Toolkit {
       onPressed: () =>
         Navigator
           .of(context)
-          .pushAndRemoveUntil(
+          .pushReplacement(
             MaterialPageRoute(
               builder: (context) =>
                 target()
-            ), (route) => true),
+            )
+        ),
     );
 
 }
