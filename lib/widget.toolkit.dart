@@ -10,4 +10,11 @@ class Toolkit {
       backgroundColor: Colors.purple,
     );
 
+  static getFloatingActionButton(IconData iconData, { void onPressed() }) =>
+    FloatingActionButton(
+      onPressed: onPressed,
+      child: Icon(iconData),
+      backgroundColor: Colors.purple,
+    );
+
 }

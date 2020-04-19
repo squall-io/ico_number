@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:ico_number/icons.dart';
-import 'package:ico_number/widget.result.dart';
 import 'package:ico_number/widget.toolkit.dart';
 
 
@@ -54,18 +53,7 @@ class IconView extends StatelessWidget {
         future: rootBundle.loadString("assets/icon-view.md"),
       ),
       appBar: Toolkit.getAppBar('IcoNumber | Icons'),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.navigate_next),
-        onPressed: () =>
-          Navigator
-            .of(context)
-            .pushReplacement(
-              MaterialPageRoute(
-                builder: (context) =>
-                  Result(_icons.elementAt(0)),
-              ),
-            ),
-      ),
+      floatingActionButton: Toolkit.getFloatingActionButton(Icons.navigate_next),
     );
 
   IconData _getIconData({ Set<IconData> from, int max}) {

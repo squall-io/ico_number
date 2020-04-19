@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ico_number/widget.home.dart';
 import 'package:ico_number/widget.toolkit.dart';
 
 
@@ -39,18 +38,7 @@ class Result extends StatelessWidget {
         ),
       ),
       appBar: Toolkit.getAppBar('IcoNumber | Result'),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.cached),
-        onPressed: () =>
-            Navigator
-              .of(context)
-              .pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) =>
-                    HomeWidget(),
-                ),
-              ),
-      ),
+      floatingActionButton: Toolkit.getFloatingActionButton(Icons.cached),
     );
 
 }

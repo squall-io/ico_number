@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:ico_number/widget.icon-view.dart';
 import 'package:ico_number/widget.toolkit.dart';
 
 
@@ -29,18 +28,7 @@ class HomeWidget extends StatelessWidget {
         future: rootBundle.loadString("assets/how-to.md"),
       ),
       appBar: Toolkit.getAppBar('IcoNumber | Rules'),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.play_arrow),
-        onPressed: () =>
-            Navigator
-                .of(context)
-                .push(
-              MaterialPageRoute(
-                  builder: (context) =>
-                    IconView(),
-              ),
-            ),
-      ),
+      floatingActionButton: Toolkit.getFloatingActionButton(Icons.play_arrow),
     );
 
 }
