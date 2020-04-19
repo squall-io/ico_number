@@ -32,7 +32,7 @@ class IconView extends StatelessWidget {
                   data: snapshot.data as String,
                 );
 
-                final matched = 0 == (index += 8) % 9;
+                final matched = 0 == index % 9;
 
                 return Column(
                   children: <Widget>[
