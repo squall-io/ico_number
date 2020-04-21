@@ -37,36 +37,36 @@ class _HowToScreenState extends State<HowToScreen> {
       child: ListView(
         children: <Widget>[
           _Step(
-            description: 'step.description.imagine',
-            example: 'step.example.imagine',
+            description: 'how-to.step.description.imagine',
+            example: 'how-to.step.example.imagine',
             parameters: { 'number': _number },
           ),
           _divider,
           _Step(
-            description: 'step.description.sum-digits',
+            description: 'how-to.step.description.sum-digits',
             example: '${ _digits?.join(' + ' ) } = $_digitsSum',
             isPlain: true,
           ),
           _divider,
           _Step(
-            description: 'step.description.substract',
+            description: 'how-to.step.description.substract',
             example: '$_number - $_digitsSum = $_difference',
             isPlain: true,
           ),
           _divider,
           _Step(
-            description: 'step.description.look-icon',
-            example: 'step.example.look-icon',
+            description: 'how-to.step.description.look-icon',
+            example: 'how-to.step.example.look-icon',
             parameters: { 'difference': _difference },
           ),
           _divider,
           _Step(
-            description: 'step.description.remember-icon',
+            description: 'how-to.step.description.remember-icon',
           ),
           _divider,
           _Step(
-            description: 'step.description.guess-icon',
-            example: 'step.description.thank-you',
+            description: 'how-to.step.description.guess-icon',
+            example: 'how-to.step.description.thank-you',
           ),
         ],
       ),
