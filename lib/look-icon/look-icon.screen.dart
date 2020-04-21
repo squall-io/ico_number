@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:ico_number/look-icon/look-icon.model.dart';
 import 'package:ico_number/widget.factory.dart';
 
 
@@ -16,9 +19,19 @@ class LookIconScreen extends StatefulWidget {
 
 class _LookIconScreenState extends State<LookIconScreen> {
 
-  final _listFrom = TextEditingController(text: '0');
+  static const _duration = const Duration(milliseconds: 1000);
+
+  static final _scrollController = ScrollController();
+  static final _random = Random.secure();
+
+  final _listFrom = TextEditingController(text: '1');
+  final _icons = <IconData>{};
 
   _LookIconScreenState() {
+    do {
+      _icons.add(lookIcons.elementAt(_random.nextInt(lookIcons.length)));
+    } while (8 > _icons.length);
+
     _listFrom.addListener(() => setState(() {}));
   }
 
@@ -26,13 +39,20 @@ class _LookIconScreenState extends State<LookIconScreen> {
   Widget build(BuildContext context) =>
     WidgetFactory.getScaffold(
       child: ListView.builder(
+        controller: _scrollController,
         itemBuilder: (builder, index) {
           switch (index) {
             case 0:
               return WidgetFactory.getPadding(
                 child: Column(
                   children: <Widget>[
-                    I18nText('look-icon.description', child: Text('', textAlign: TextAlign.justify)),
+                    I18nText(
+                      'look-icon.description',
+                      child: Text(
+                        '',
+                        textAlign: TextAlign.justify
+                      ),
+                    ),
                     LookIconScreen._divider,
                     _ListFromInput(
                       context: context,
@@ -42,12 +62,41 @@ class _LookIconScreenState extends State<LookIconScreen> {
                 )
               );
             default:
-              return ListTile(
-                title: Text('${ index + (double.tryParse(_listFrom.text)?.toInt() ?? 0) - 1 }'),
+              index += (double.tryParse(_listFrom.text)?.toInt() ?? 0) - 1;
+
+              return Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text('$index'),
+                    trailing: Icon(
+                      _icons.elementAt(
+                        0 == index % 9 ? 0
+                            : _random.nextInt(_icons.length),
+                      ),
+                    ),
+                  ),
+                  const Divider(),
+                ],
               );
           }
         }
       ),
+      actionButtons: [
+        CustomActionButton(
+          onPressed: () =>
+            _scrollController.animateTo(
+              0,
+              duration: _duration,
+              curve: Curves.elasticInOut,
+            ),
+          alignment: Alignment.bottomCenter,
+          widget: Icon(Icons.keyboard_arrow_up),
+        ),
+        CustomActionButton(
+          alignment: Alignment.bottomRight,
+          widget: Icon(Icons.navigate_next),
+        ),
+      ],
       title: FlutterI18n.translate(context, 'screen.title.look-icon'),
     );
 
