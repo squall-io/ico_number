@@ -1,0 +1,16 @@
+screen:
+  title:
+    how-to: How It Works
+
+step:
+  description:
+    imagine: Imagine a 2+ digits number
+    sum-digits: Sum its digits
+    substract: Substrat digits' sum from number
+    look-icon: Look for the icon associated to result
+    remember-icon: Think hard to remember that icon
+    guess-icon: Now, let IcoNumber guess that icon
+    thank-you: Thank you
+  example:
+    imagine: 'Example: {number}'
+    look-icon: 'Look icon for {difference}'
