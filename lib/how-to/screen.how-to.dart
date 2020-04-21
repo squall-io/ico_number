@@ -44,11 +44,11 @@ class _HowToScreenState extends State<HowToScreen> {
 
   @override
   Widget build(BuildContext context) =>
-    Scaffold(
-      body: ListView(
+    WidgetFactory.getScaffold(
+      title: "How It Works",
+      child: ListView(
         children: _steps,
       ),
-      appBar: WidgetFactory.getAppBar(title: 'How It Works'),
     );
 
 }
