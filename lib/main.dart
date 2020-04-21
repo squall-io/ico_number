@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:ico_number/look-icon.screen.dart';
+import 'package:ico_number/look-icon/look-icon.screen.dart';
 
 
 
