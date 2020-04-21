@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WidgetFactory {
 
@@ -11,9 +12,12 @@ class WidgetFactory {
       backgroundColor: Colors.deepPurple,
     );
 
-  static Scaffold getScaffold({ @required String title, Widget child }) =>
-    Scaffold(
-      appBar: getAppBar(title: title),
-      body: child ?? Container(),
+  static Widget getScaffold({ @required String title, Widget child }) =>
+    AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(),
+      child: Scaffold(
+        appBar: getAppBar(title: title),
+        body: child ?? Container(),
+      ),
     );
 }

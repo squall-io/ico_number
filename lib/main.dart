@@ -12,12 +12,9 @@ void main() =>
 class EntryWidget extends StatelessWidget {
 
   @override
-  Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-
-    return MaterialApp(
+  Widget build(BuildContext context) =>
+    MaterialApp(
       home: HowToScreen(),
     );
-  }
 
 }
