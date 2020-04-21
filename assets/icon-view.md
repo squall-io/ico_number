@@ -1,3 +1,0 @@
-Scroll and look at the icon associated to the result you remembered from previous step.
-
-Click the **▶** button to continue...
