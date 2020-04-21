@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ico_number/how-to/screen.how-to.dart';
 
 
@@ -15,6 +16,19 @@ class EntryWidget extends StatelessWidget {
   Widget build(BuildContext context) =>
     MaterialApp(
       home: HowToScreen(),
+      localizationsDelegates: [
+        FlutterI18nDelegate(
+          translationLoader: FileTranslationLoader(
+            basePath: 'assets/i18n',
+          ),
+        ),
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale("en"),
+      ],
     );
 
 }
