@@ -2,6 +2,7 @@ screen:
   title:
     how-to: How It Works
     look-icon: Look For Icon
+    guess-icon: Guess Icon
 
 step:
   description:
@@ -26,3 +27,11 @@ look-icon:
     big, you can jump to a closer number by
     editing the form below.
   list-from: List numbers starting at
+
+guess-icon:
+  description:
+    IcoNumber will now get the icon from previous step !
+    Give it a few second, would you ?
+  what-next:
+    What next ? Rate this app (bottom center of the screen)
+    then take another round (bottom right of the screen).

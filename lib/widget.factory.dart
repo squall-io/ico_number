@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 
 
 
@@ -8,15 +9,9 @@ class WidgetFactory {
   static const padding = EdgeInsets.all(20);
 
   static Padding getPadding({ Widget child }) =>
-      Padding(
-        child: child,
-        padding: padding,
-      );
-
-  static AppBar getAppBar({ String title }) =>
-    AppBar(
-      title: Text(title),
-      backgroundColor: Colors.deepPurple,
+    Padding(
+      child: child,
+      padding: padding,
     );
 
   static Widget getScaffold({
@@ -28,28 +23,22 @@ class WidgetFactory {
       value: SystemUiOverlayStyle(),
       child: Scaffold(
         body: child ?? Container(),
-        appBar: getAppBar(title: title),
+        appBar: AppBar(title: I18nText(title)),
         floatingActionButton: Stack(
           children: actionButtons
-            .map((actionButton) =>
+            ?.map((actionButton) =>
               Align(
-                child: getFloatingActionButton(
+                child: FloatingActionButton(
                   child: actionButton.widget,
                   onPressed: actionButton.onPressed,
                 ),
                 alignment: actionButton.alignment,
-              )
+              ),
             )
-          .toList(),
+          ?.toList()
+          ?? [],
         ),
       ),
-    );
-
-  static FloatingActionButton getFloatingActionButton({ Widget child, Function onPressed }) =>
-    FloatingActionButton(
-      child: child,
-      onPressed: onPressed,
-      backgroundColor: Colors.deepPurple,
     );
 
 }
@@ -60,6 +49,6 @@ class CustomActionButton {
   final Function onPressed;
   final Alignment alignment;
 
-  CustomActionButton({this.onPressed, this.widget, this.alignment});
+  CustomActionButton({this.onPressed, @required this.widget, @required this.alignment});
 
 }
