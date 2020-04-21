@@ -1,6 +1,7 @@
 screen:
   title:
     how-to: How It Works
+    look-icon: Look For Icon
 
 step:
   description:
@@ -14,3 +15,14 @@ step:
   example:
     imagine: 'Example: {number}'
     look-icon: 'Look icon for {difference}'
+
+look-icon:
+  validation:
+    invalid-list-from: Invalid | Expect a positive number
+  description:
+    Scroll down to the result from previous
+    step calculations to see wich icon it is
+    associated with. If your number is too
+    big, you can jump to a closer number by
+    editing the form below.
+  list-from: List numbers starting at
