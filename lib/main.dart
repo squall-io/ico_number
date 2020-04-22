@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:ico_number/guess-icon/guess-icon.screen.dart';
+import 'package:ico_number/home/home.screen.dart';
 
 
 
@@ -25,7 +25,7 @@ class EntryWidget extends StatelessWidget {
           backgroundColor: Colors.deepPurple,
         ),
       ),
-      home: GuessIconScreen(Icons.casino),
+      home: HomeScreen(),
       localizationsDelegates: [
         FlutterI18nDelegate(
           translationLoader: FileTranslationLoader(

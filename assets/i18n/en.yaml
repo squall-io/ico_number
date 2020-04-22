@@ -1,8 +1,15 @@
 screen:
   title:
+    home: IcoNumber
     how-to: How It Works
     look-icon: Look For Icon
     guess-icon: Guess Icon
+
+home:
+  description:
+    IconNumer whole purpose it to try reading what's on your mind.
+    That's it. Are you curious how it works ? Click the exclamation
+    button. You want to give it a shot ? Click the start button.
 
 how-to:
   step:
@@ -34,5 +41,5 @@ guess-icon:
     IcoNumber will now get the icon from previous step !
     Give it a few second, would you ?
   what-next:
-    What next ? Rate this app (bottom center of the screen)
-    then take another round (bottom right of the screen).
+    What next ? Rate this app (bottom center)
+    then take another round (bottom right).
