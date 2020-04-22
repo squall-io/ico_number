@@ -43,6 +43,7 @@ class WidgetFactory {
             ?.map((actionButton) =>
               Align(
                 child: FloatingActionButton(
+                  heroTag: GlobalKey(),
                   child: actionButton.widget,
                   onPressed: actionButton.onPressed,
                 ),
