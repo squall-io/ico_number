@@ -85,7 +85,21 @@ class WidgetFactory {
             return ListTile(
               trailing: Image.asset('assets/img/ic_launcher.png'),
               title: I18nText('app-name'),
-              subtitle: Text('1.0.0 [MIT]'),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(3)),
+                  InkWell(
+                    child: I18nText('github-sources', child: Text('', style: TextStyle(color: Colors.lightBlue))),
+                    onTap: () => launch('https://github.com/squall-io/ico_number'),
+                  ),
+                  const Padding(padding: EdgeInsets.all(3)),
+                  InkWell(
+                    child: Text('1.0.0 - MIT License', style: TextStyle(color: Colors.lightBlue)),
+                    onTap: () => launch('https://github.com/squall-io/ico_number/blob/master/LICENSE'),
+                  ),
+                ],
+              ),
             );
           case 1:
             return ListTile(
@@ -93,7 +107,9 @@ class WidgetFactory {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(3)),
                   Text('Salathiel Genese'),
+                  const Padding(padding: EdgeInsets.all(3)),
                   InkWell(
                     child: Text('salathiel@genese.name', style: TextStyle(color: Colors.lightBlue)),
                     onTap: () => launch('mailto:salathiel@genese.name'),

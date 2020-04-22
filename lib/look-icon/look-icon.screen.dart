@@ -25,15 +25,18 @@ class _LookIconScreenState extends State<LookIconScreen> {
   static final _scrollController = ScrollController();
   static final _random = Random.secure();
 
-  final _listFrom = TextEditingController(text: '1');
+  final _listFromController = TextEditingController(text: '');
   final _icons = <IconData>{};
+
+  int _listFrom = 1;
 
   _LookIconScreenState() {
     do {
       _icons.add(lookIcons.elementAt(_random.nextInt(lookIcons.length)));
     } while (8 > _icons.length);
 
-    _listFrom.addListener(() => setState(() {}));
+    _listFromController.addListener(() =>
+      setState(() => _listFrom = double.tryParse(_listFromController.text)?.toInt() ?? 1));
   }
 
   @override
@@ -45,29 +48,25 @@ class _LookIconScreenState extends State<LookIconScreen> {
         itemBuilder: (builder, index) {
           switch (index) {
             case 0:
-              return WidgetFactory.getPadding(
-                child: Column(
-                  children: <Widget>[
-                    I18nText(
-                      'look-icon.description',
-                      child: Text(
-                        '',
-                        textAlign: TextAlign.justify
-                      ),
-                    ),
-                    LookIconScreen._divider,
-                    TextFormField(
-                      controller: _listFrom,
-                      keyboardType: TextInputType.numberWithOptions(),
-                      decoration: InputDecoration(
-                        hintText: FlutterI18n.translate(context, 'look-icon.list-from'),
-                      ),
-                    ),
-                  ],
-                )
+              return Padding(
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                child: I18nText(
+                  'look-icon.description',
+                  child: Text( '', textAlign: TextAlign.justify))
+              );
+            case 1:
+              return Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                child: TextFormField(
+                  controller: _listFromController,
+                  keyboardType: TextInputType.numberWithOptions(),
+                  decoration: InputDecoration(
+                    hintText: FlutterI18n.translate(context, 'look-icon.list-from'),
+                  ),
+                ),
               );
             default:
-              index += max(0, double.tryParse(_listFrom.text)?.toInt() ?? 0) - 1;
+              index += _listFrom - 2;
 
               return Column(
                 children: <Widget>[
@@ -112,7 +111,7 @@ class _LookIconScreenState extends State<LookIconScreen> {
 
   @override
   void dispose() {
-    _listFrom.dispose();
+    _listFromController.dispose();
     super.dispose();
   }
 }

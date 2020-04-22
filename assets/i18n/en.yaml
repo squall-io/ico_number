@@ -1,6 +1,8 @@
 app-name: IcoNumber
+github-sources: GitHub Sources
 
 $action:
+
   continue: Continue
   rate-app: Rate App
   try-again: Re-Try
@@ -42,19 +44,16 @@ look-icon:
   description:
     Scroll down to the result from previous
     step calculations to see wich icon it is
-    associated with. (If your number is too
-    big, you can change list start to something
-    else than 1). Remember that icon a IcoNumber
+    associated with. Remember that icon a IcoNumber
     guess which one it was.
-  list-from: List numbers starting at
+  list-from: Start list at 1 (you can change it)
 
 guess-icon:
   description:
-    IcoNumber will now get the icon from previous step !
-    Give it a few second, would you ?
+    Guessing... Give it a few second, would you ?
   what-next:
     What next ?
 
     Rate this app, then take another round.
 
-    Contact me? Click the fingerprint.
+    Want to contact me? Click the fingerprint.
