@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:ico_number/home/home.screen.dart';
+import 'package:ico_number/how-to/how-to.screen.dart';
 import 'package:ico_number/widget.factory.dart';
 
 
@@ -51,7 +51,7 @@ class _GuessIconScreenState extends State<GuessIconScreen> {
             WidgetFactory.getPadding(
               child: Center(
                 child: _done
-                  ? Icon(_iconData, size: _size)
+                  ? Icon(_iconData, size: _size, color: Colors.grey)
                   : SizedBox(
                     child: CircularProgressIndicator(),
                     height: _size,
@@ -70,13 +70,15 @@ class _GuessIconScreenState extends State<GuessIconScreen> {
       ),
       actionButtons: [
         CustomActionButton(
-          widget: Icon(Icons.rate_review),
-          alignment: Alignment.bottomCenter,
+          i18n: '\$action.rate-app',
+          iconData:Icons.rate_review,
+          alignment: Alignment.bottomLeft,
         ),
         CustomActionButton(
-          widget: Icon(Icons.autorenew),
+          iconData: Icons.autorenew,
+          i18n: '\$action.try-again',
           alignment: Alignment.bottomRight,
-          onPressed: () => WidgetFactory.navigateTo(context, (context) => HomeScreen(), isPushBackAware: false),
+          onPressed: () => WidgetFactory.navigateTo(context, (context) => HowToScreen(), isPushBackAware: false),
         ),
       ],
     );

@@ -22,7 +22,11 @@ class EntryWidget extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        primarySwatch: Colors.purple,
+        buttonTheme: ButtonThemeData(
+          splashColor: Colors.deepPurple,
+          textTheme: ButtonTextTheme.primary,
+        ),
+        primarySwatch: Colors.deepPurple,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.deepPurple,
         ),

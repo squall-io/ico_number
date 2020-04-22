@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:ico_number/look-icon/look-icon.screen.dart';
 import 'package:ico_number/widget.factory.dart';
 
 
@@ -71,6 +72,14 @@ class _HowToScreenState extends State<HowToScreen> {
         ],
       ),
       title: FlutterI18n.translate(context, 'screen.title.how-to'),
+      actionButtons: [
+        CustomActionButton(
+          i18n: '\$action.continue',
+          iconData: Icons.navigate_next,
+          alignment: Alignment.bottomRight,
+          onPressed: () => WidgetFactory.navigateTo(context, (context) => LookIconScreen()),
+        ),
+      ],
     );
 
 }

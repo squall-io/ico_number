@@ -84,18 +84,20 @@ class _LookIconScreenState extends State<LookIconScreen> {
       ),
       actionButtons: [
         CustomActionButton(
+          i18n: '\$action.scroll-up',
           onPressed: () =>
             _scrollController.animateTo(
               0,
               duration: _duration,
               curve: Curves.elasticInOut,
             ),
-          alignment: Alignment.bottomCenter,
-          widget: Icon(Icons.keyboard_arrow_up),
+          alignment: Alignment.bottomLeft,
+          iconData: Icons.keyboard_arrow_up,
         ),
         CustomActionButton(
+          i18n: '\$action.guess',
           alignment: Alignment.bottomRight,
-          widget: Icon(Icons.navigate_next),
+          iconData: Icons.find_replace,
           onPressed: () =>
             WidgetFactory.navigateTo(context, (context) =>
               GuessIconScreen(_icons.elementAt(0)), isPushBackAware: false),

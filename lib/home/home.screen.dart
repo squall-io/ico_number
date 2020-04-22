@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:ico_number/how-to/how-to.screen.dart';
 import 'package:ico_number/widget.factory.dart';
 
 
@@ -37,12 +38,10 @@ class HomeScreen extends StatelessWidget {
       ),
       actionButtons: [
         CustomActionButton(
-          widget: Icon(Icons.help),
-          alignment: Alignment.bottomCenter,
-        ),
-        CustomActionButton(
-          widget: Icon(Icons.play_arrow),
+          i18n: '\$action.try',
+          iconData: Icons.play_arrow,
           alignment: Alignment.bottomRight,
+          onPressed: () => WidgetFactory.navigateTo(context, (context) => HowToScreen()),
         ),
       ],
     );

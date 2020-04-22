@@ -1,4 +1,13 @@
 app-name: IcoNumber
+
+$action:
+  continue: Continue
+  rate-app: Rate App
+  try-again: Re-Try
+  scroll-up: Up
+  guess: Guess
+  try: Try
+
 screen:
   title:
     how-to: How It Works

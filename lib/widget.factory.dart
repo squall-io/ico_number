@@ -38,20 +38,24 @@ class WidgetFactory {
               ),
             ],
           ),
-          floatingActionButton: Stack(
-            children: actionButtons
-                ?.map((actionButton) =>
-                Align(
-                  child: FloatingActionButton(
-                    heroTag: GlobalKey(),
-                    child: actionButton.widget,
-                    onPressed: actionButton.onPressed,
+          floatingActionButton: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: null == actionButtons
+              ? [ Container() ]
+              : actionButtons
+                .map((actionButton) =>
+                  Padding(
+                    child: null == actionButton.i18n
+                      ? Icon(actionButton.iconData)
+                      : RaisedButton.icon(
+                        icon: Icon(actionButton.iconData),
+                        onPressed: actionButton.onPressed,
+                        label: I18nText(actionButton.i18n),
+                    ),
+                    padding: EdgeInsets.only( left: 10, right: 10 ),
                   ),
-                  alignment: actionButton.alignment,
-                ),
-            )
-                ?.toList()
-                ?? [],
+                ).toList()
           ),
         ),
       );
@@ -109,10 +113,16 @@ class WidgetFactory {
 
 class CustomActionButton {
 
-  final Widget widget;
+  final String i18n;
+  final IconData iconData;
   final Function onPressed;
   final Alignment alignment;
 
-  CustomActionButton({this.onPressed, @required this.widget, @required this.alignment});
+  CustomActionButton({
+    this.i18n,
+    this.onPressed,
+    @required this.iconData,
+    @required this.alignment,
+  });
 
 }
