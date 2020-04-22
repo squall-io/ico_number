@@ -38,6 +38,7 @@ class _GuessIconScreenState extends State<GuessIconScreen> {
   @override
   Widget build(BuildContext context) =>
     WidgetFactory.getScaffold(
+      context: context,
       title: 'screen.title.guess-icon',
       child: WidgetFactory.getPadding(
         child: ListView(

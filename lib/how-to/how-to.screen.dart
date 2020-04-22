@@ -35,6 +35,7 @@ class _HowToScreenState extends State<HowToScreen> {
   @override
   Widget build(BuildContext context) =>
     WidgetFactory.getScaffold(
+      context: context,
       child: ListView(
         children: <Widget>[
           _Step(

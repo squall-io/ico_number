@@ -39,6 +39,7 @@ class _LookIconScreenState extends State<LookIconScreen> {
   @override
   Widget build(BuildContext context) =>
     WidgetFactory.getScaffold(
+      context: context,
       child: ListView.builder(
         controller: _scrollController,
         itemBuilder: (builder, index) {
