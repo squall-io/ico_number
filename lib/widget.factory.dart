@@ -56,25 +56,39 @@ class WidgetFactory {
     );
 
   static Widget _getAboutWidget(BuildContext context) =>
-    ListView(
-      children: <Widget>[
-        ListTile(
-          trailing: Image.asset('assets/img/ic_launcher.png'),
-          title: I18nText('app-name'),
-          subtitle: Text('1.0.0 (MIT)'),
-        ),
-        ListTile(
-          title: I18nText('about.developer'),
-          subtitle: InkWell(
-            child: Text('Salathiel | salathiel@genese.name', style: TextStyle(color: Colors.lightBlue)),
-            onTap: () => launch('mailto:salathiel@genese.name'),
-          ),
-        ),
-        Divider(),
-        ListTile(
-          subtitle: I18nText('about.note'),
-        ),
-      ],
+    ListView.separated(
+      itemCount: 4,
+      separatorBuilder: (context, index) => Divider(),
+      itemBuilder: (context, index) {
+        switch(index) {
+          case 0:
+            return ListTile(
+              trailing: Image.asset('assets/img/ic_launcher.png'),
+              title: I18nText('app-name'),
+              subtitle: Text('1.0.0 [MIT]'),
+            );
+          case 1:
+            return ListTile(
+              title: I18nText('about.developer'),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Salathiel Genese'),
+                  InkWell(
+                    child: Text('salathiel@genese.name', style: TextStyle(color: Colors.lightBlue)),
+                    onTap: () => launch('mailto:salathiel@genese.name'),
+                  ),
+                ],
+              ),
+            );
+          case 2:
+            return ListTile(
+              subtitle: I18nText('about.note', child: Text('', textAlign: TextAlign.justify)),
+            );
+          default:
+            return null;
+        }
+      },
     );
 
 }
