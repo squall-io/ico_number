@@ -10,10 +10,10 @@ class WidgetFactory {
   static const padding = EdgeInsets.all(20);
 
   static Padding getPadding({ Widget child }) =>
-    Padding(
-      child: child,
-      padding: padding,
-    );
+      Padding(
+        child: child,
+        padding: padding,
+      );
 
   static Widget getScaffold({
     Widget child,
@@ -21,40 +21,53 @@ class WidgetFactory {
     @required String title,
     List<CustomActionButton> actionButtons,
   }) =>
-    AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(),
-      child: Scaffold(
-        body: child ?? Container(),
-        appBar: AppBar(
-          title: I18nText(title),
-          actions: null == context ? null : <Widget>[
-            IconButton(
-              onPressed: () =>
-                showModalBottomSheet(
-                  context: context,
-                  builder: _getAboutWidget,
-                ),
-              icon: Icon(Icons.fingerprint),
-            ),
-          ],
-        ),
-        floatingActionButton: Stack(
-          children: actionButtons
-            ?.map((actionButton) =>
-              Align(
-                child: FloatingActionButton(
-                  heroTag: GlobalKey(),
-                  child: actionButton.widget,
-                  onPressed: actionButton.onPressed,
-                ),
-                alignment: actionButton.alignment,
+      AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(),
+        child: Scaffold(
+          body: child ?? Container(),
+          appBar: AppBar(
+            title: I18nText(title),
+            actions: null == context ? null : <Widget>[
+              IconButton(
+                onPressed: () =>
+                    showModalBottomSheet(
+                      context: context,
+                      builder: _getAboutWidget,
+                    ),
+                icon: Icon(Icons.fingerprint),
               ),
+            ],
+          ),
+          floatingActionButton: Stack(
+            children: actionButtons
+                ?.map((actionButton) =>
+                Align(
+                  child: FloatingActionButton(
+                    heroTag: GlobalKey(),
+                    child: actionButton.widget,
+                    onPressed: actionButton.onPressed,
+                  ),
+                  alignment: actionButton.alignment,
+                ),
             )
-          ?.toList()
-          ?? [],
+                ?.toList()
+                ?? [],
+          ),
         ),
-      ),
-    );
+      );
+
+  static void navigateTo(BuildContext context, WidgetBuilder builder, { bool isPushBackAware = true }) {
+    if (isPushBackAware) {
+      Navigator.of(context).push(MaterialPageRoute<void>(
+        builder: builder,
+      ));
+    } else {
+      Navigator.of(context).popUntil((route) => route.isFirst);
+      Navigator.of(context).pushReplacement(MaterialPageRoute<void>(
+        builder: builder,
+      ));
+    }
+  }
 
   static Widget _getAboutWidget(BuildContext context) =>
     ListView.separated(

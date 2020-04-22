@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:ico_number/guess-icon/guess-icon.screen.dart';
 import 'package:ico_number/look-icon/look-icon.model.dart';
 import 'package:ico_number/widget.factory.dart';
 
@@ -95,6 +96,9 @@ class _LookIconScreenState extends State<LookIconScreen> {
         CustomActionButton(
           alignment: Alignment.bottomRight,
           widget: Icon(Icons.navigate_next),
+          onPressed: () =>
+            WidgetFactory.navigateTo(context, (context) =>
+              GuessIconScreen(_icons.elementAt(0)), isPushBackAware: false),
         ),
       ],
       title: FlutterI18n.translate(context, 'screen.title.look-icon'),
