@@ -37,41 +37,45 @@ class _HowToScreenState extends State<HowToScreen> {
   Widget build(BuildContext context) =>
     WidgetFactory.getScaffold(
       context: context,
-      child: ListView(
-        children: <Widget>[
-          _Step(
-            description: 'how-to.step.description.imagine',
-            example: 'how-to.step.example.imagine',
-            parameters: { 'number': _number },
-          ),
-          _divider,
-          _Step(
-            description: 'how-to.step.description.sum-digits',
-            example: '${ _digits?.join(' + ' ) } = $_digitsSum',
-            isPlain: true,
-          ),
-          _divider,
-          _Step(
-            description: 'how-to.step.description.substract',
-            example: '$_number - $_digitsSum = $_difference',
-            isPlain: true,
-          ),
-          _divider,
-          _Step(
-            description: 'how-to.step.description.look-icon',
-            example: 'how-to.step.example.look-icon',
-            parameters: { 'difference': _difference },
-          ),
-          _divider,
-          _Step(
-            description: 'how-to.step.description.remember-icon',
-          ),
-          _divider,
-          _Step(
-            description: 'how-to.step.description.guess-icon',
-            example: 'how-to.step.description.thank-you',
-          ),
-        ],
+      child: ListView.separated(
+        separatorBuilder: (context, index) => _divider,
+        itemBuilder: (context, index) {
+          switch(index) {
+            case 0:
+              return Column(
+                children: <Widget>[
+                  _Step(
+                    description: 'how-to.step.description.imagine',
+                    example: 'how-to.step.example.imagine',
+                    parameters: { 'number': _number },
+                  ),
+                  _Step(
+                    description: 'how-to.step.description.sum-digits',
+                    example: '${ _digits?.join(' + ' ) } = $_digitsSum',
+                    isPlain: true,
+                  ),
+                  _Step(
+                    description: 'how-to.step.description.substract',
+                    example: '$_number - $_digitsSum = $_difference',
+                    isPlain: true,
+                  ),
+                  _Step(
+                    description: 'how-to.step.description.look-icon',
+                    example: 'how-to.step.example.look-icon',
+                    parameters: { 'difference': _difference },
+                  ),
+                  _Step(
+                    description: '',
+                    example: 'how-to.step.description.remember-icon',
+                    parameters: { 'continue': FlutterI18n.translate(context, '\$action.continue') },
+                  ),
+                ],
+              );
+            default:
+              return null;
+          }
+        },
+        itemCount: 1,
       ),
       title: FlutterI18n.translate(context, 'screen.title.how-to'),
       actionButtons: [

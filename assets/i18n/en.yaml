@@ -23,33 +23,29 @@ about:
 
 home:
   description:
-    IconNumer whole purpose it to try reading what's on your mind.
-    That's it. Are you curious how it works ? Click the exclamation
-    button. You want to give it a shot ? Click the start button.
+    IconNumer whole purpose is to try reading what's on your mind.
+    That's it. Want to challenge it ? Try it !
 
 how-to:
   step:
     description:
-      imagine: Imagine a 2+ digits number
+      imagine: Imagine a whole number with 2+ digit
       sum-digits: Sum its digits
       substract: Substrat digits' sum from number
       look-icon: Look for the icon associated to result
-      remember-icon: Think hard to remember that icon
-      guess-icon: Now, let IcoNumber guess that icon
-      thank-you: Thank you
+      remember-icon: Click {continue} to find that icon
     example:
       imagine: 'Example: {number}'
-      look-icon: 'Look icon for {difference}'
+      look-icon: Look icon for {difference}
 
 look-icon:
-  validation:
-    invalid-list-from: Invalid | Expect a positive number
   description:
     Scroll down to the result from previous
     step calculations to see wich icon it is
-    associated with. If your number is too
-    big, you can jump to a closer number by
-    editing the form below.
+    associated with. (If your number is too
+    big, you can change list start to something
+    else than 1). Remember that icon a IcoNumber
+    guess which one it was.
   list-from: List numbers starting at
 
 guess-icon:
@@ -57,5 +53,8 @@ guess-icon:
     IcoNumber will now get the icon from previous step !
     Give it a few second, would you ?
   what-next:
-    What next ? Rate this app (bottom center)
-    then take another round (bottom right).
+    What next ?
+
+    Rate this app, then take another round.
+
+    Contact me? Click the fingerprint.

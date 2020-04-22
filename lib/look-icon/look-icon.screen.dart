@@ -56,15 +56,18 @@ class _LookIconScreenState extends State<LookIconScreen> {
                       ),
                     ),
                     LookIconScreen._divider,
-                    _ListFromInput(
-                      context: context,
+                    TextFormField(
                       controller: _listFrom,
+                      keyboardType: TextInputType.numberWithOptions(),
+                      decoration: InputDecoration(
+                        hintText: FlutterI18n.translate(context, 'look-icon.list-from'),
+                      ),
                     ),
                   ],
                 )
               );
             default:
-              index += (double.tryParse(_listFrom.text)?.toInt() ?? 0) - 1;
+              index += max(0, double.tryParse(_listFrom.text)?.toInt() ?? 0) - 1;
 
               return Column(
                 children: <Widget>[
@@ -107,44 +110,9 @@ class _LookIconScreenState extends State<LookIconScreen> {
       title: FlutterI18n.translate(context, 'screen.title.look-icon'),
     );
 
-}
-
-class _ListFromInput extends StatelessWidget {
-
-  static final _formKey = GlobalKey<FormState>();
-
-  final TextEditingController _controller;
-
-  _ListFromInput({Key key, @required TextEditingController controller, BuildContext context }):
-    _controller = controller,
-    super(key: key) {
-      _controller.addListener(() =>
-        _formKey.currentState.validate()
-      );
-  }
-
-
   @override
-  Widget build(BuildContext context) =>
-    Form(
-      key: _formKey,
-      child: TextFormField(
-        controller: _controller,
-        validator: (value) {
-          String error;
-
-          if (null == double.tryParse(value)?.toInt())
-            error = FlutterI18n.translate(context, 'look-icon.validation.invalid-list-from');
-
-          return error;
-        },
-        keyboardType: TextInputType.numberWithOptions(),
-        decoration: InputDecoration(
-          hintText: FlutterI18n.translate(context, 'look-icon.list-from'),
-        ),
-      ),
-    );
-
-
-
+  void dispose() {
+    _listFrom.dispose();
+    super.dispose();
+  }
 }

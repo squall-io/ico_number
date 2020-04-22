@@ -55,7 +55,7 @@ class _GuessIconScreenState extends State<GuessIconScreen> {
                 child: _done
                   ? Icon(_iconData, size: _size, color: Colors.grey)
                   : SizedBox(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(strokeWidth: 15),
                     height: _size,
                     width: _size,
                   ),
@@ -70,19 +70,21 @@ class _GuessIconScreenState extends State<GuessIconScreen> {
           ],
         ),
       ),
-      actionButtons: [
-        CustomActionButton(
-          i18n: '\$action.rate-app',
-          iconData:Icons.rate_review,
-          alignment: Alignment.bottomLeft,
-        ),
-        CustomActionButton(
-          iconData: Icons.autorenew,
-          i18n: '\$action.try-again',
-          alignment: Alignment.bottomRight,
-          onPressed: () => WidgetFactory.navigateTo(context, (context) => HowToScreen(), isPushBackAware: false),
-        ),
-      ],
+      actionButtons: _done
+        ? [
+          CustomActionButton(
+            i18n: '\$action.rate-app',
+            iconData:Icons.rate_review,
+            alignment: Alignment.bottomLeft,
+          ),
+          CustomActionButton(
+            iconData: Icons.autorenew,
+            i18n: '\$action.try-again',
+            alignment: Alignment.bottomRight,
+            onPressed: () => WidgetFactory.navigateTo(context, (context) => HowToScreen(), isPushBackAware: false),
+          ),
+        ]
+        : null,
       leading: IconButton(
         icon: Icon(Icons.home),
         onPressed: () => WidgetFactory.navigateTo(context, (context) => HomeScreen(), isPushBackAware: false),
