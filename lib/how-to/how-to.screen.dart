@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:ico_number/home/home.screen.dart';
 import 'package:ico_number/look-icon/look-icon.screen.dart';
 import 'package:ico_number/widget.factory.dart';
 
@@ -81,6 +82,10 @@ class _HowToScreenState extends State<HowToScreen> {
           onPressed: () => WidgetFactory.navigateTo(context, (context) => LookIconScreen()),
         ),
       ],
+      leading: IconButton(
+        icon: Icon(Icons.home),
+        onPressed: () => WidgetFactory.navigateTo(context, (context) => HomeScreen(), isPushBackAware: false),
+      ),
     );
 
 }

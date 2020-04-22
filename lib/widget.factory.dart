@@ -17,6 +17,7 @@ class WidgetFactory {
 
   static Widget getScaffold({
     Widget child,
+    Widget leading,
     BuildContext context,
     @required String title,
     List<CustomActionButton> actionButtons,
@@ -26,6 +27,7 @@ class WidgetFactory {
         child: Scaffold(
           body: child ?? Container(),
           appBar: AppBar(
+            leading: leading,
             title: I18nText(title),
             actions: null == context ? null : <Widget>[
               IconButton(
