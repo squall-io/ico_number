@@ -14,14 +14,14 @@ screen:
   title:
     how-to: How It Works
     look-icon: Look For Icon
-    guess-icon: Guess Icon
+    guess-icon: Result
 
 about:
   developer: Developer
   note:
     Do you want to reach out, for any concerns
-    (suggestions, support, professional, claims, etc),
-    you are highly encouraged.
+    (suggestions, support, professional, claims, etc) ?
+    You are highly encouraged !
 
 home:
   description:
@@ -31,29 +31,28 @@ home:
 how-to:
   step:
     description:
-      imagine: Imagine a whole number with 2+ digit
+      imagine: Imagine a whole number with 2+ digits
       sum-digits: Sum its digits
       substract: Substrat digits' sum from number
       look-icon: Look for the icon associated to result
-      remember-icon: Click {continue} to find that icon
+      remember-icon: Click {continue} to see icons
     example:
       imagine: 'Example: {number}'
       look-icon: Look icon for {difference}
+    note:
+      This number is just example !!!
 
 look-icon:
   description:
-    Scroll down to the result from previous
-    step calculations to see wich icon it is
-    associated with. Remember that icon a IcoNumber
-    guess which one it was.
-  list-from: Start list at 1 (you can change it)
+    Scroll down to the result from previous step calculations to see
+    wich icon it is associated with. Remember that icon and IcoNumber
+    will guess which one it was.
+  list-from: Start from 1 (editable)
 
 guess-icon:
   description:
     Guessing... Give it a few second, would you ?
   what-next:
     What next ?
-
-    Rate this app, then take another round.
-
+    Rate this app, share, then take another round.
     Want to contact me? Click the fingerprint.

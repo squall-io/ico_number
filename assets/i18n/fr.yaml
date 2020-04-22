@@ -1,0 +1,58 @@
+app-name: IcoNumber
+github-sources: Sources GitHub
+
+$action:
+
+  continue: Continuer
+  rate-app: Évaluer
+  try-again: Réessayer
+  scroll-up: Remonter
+  guess: Rechercher
+  try: Essayer
+
+screen:
+  title:
+    how-to: Comment Ça Marche
+    look-icon: Trouve l'Icone
+    guess-icon: Résultat
+
+about:
+  developer: Développeur
+  note:
+    Veux-tu me contacter pour quelques besoins (suggestions,
+    accompagnement, professionnel, réclamantions, etc) ?
+    Tu y es fortement encouragé !
+
+home:
+  description:
+    IconNumer a pour seul but de tenter de lire dans ton esprit.
+    C'est tout. Es-tu curieux ? Essayez donc !
+
+how-to:
+  step:
+    description:
+      imagine: Imagine un nomber entier à 2+ chiffres
+      sum-digits: Additionne ses chiffres
+      substract: Déduis cette somme du nombre initial
+      look-icon: Repère l'icone associée à ce resultat
+      remember-icon: Clique {continue} pour voir les icones
+    example:
+      imagine: 'Exemple: {number}'
+      look-icon: Repére l'icon pour {difference}
+    note:
+      Ce nombre n'est qu'un exemple !!!
+
+look-icon:
+  description:
+    Descends au résultat de l'étape précédente pou voir quelle icone
+    est associciée au résultat des calculs précédents. Retiens bien
+    cette icone qu'IcoNumber essayera de la deviner.
+  list-from: Commencer à 1 (modifiable)
+
+guess-icon:
+  description:
+    Devinette... Quelques secondes, veux-tu ?
+  what-next:
+    Quoi d'autre ?
+    Évalue cette application puis, partages et essaies encore.
+    Me joindre ? Clique sur l'empreinte !

@@ -11,8 +11,6 @@ import 'package:ico_number/widget.factory.dart';
 
 class LookIconScreen extends StatefulWidget {
 
-  static const _divider = Divider();
-
   @override
   _LookIconScreenState createState() => _LookIconScreenState();
 
