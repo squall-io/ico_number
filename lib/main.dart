@@ -18,9 +18,11 @@ class EntryWidget extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           color: Colors.deepPurple,
+          actionsIconTheme: IconThemeData(
+            color: Colors.white,
+          ),
         ),
-        accentColor: Colors.deepPurple,
-        backgroundColor: Colors.deepPurple,
+        primarySwatch: Colors.purple,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.deepPurple,
         ),

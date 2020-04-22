@@ -1,9 +1,20 @@
+app-name: IcoNumber
 screen:
   title:
-    home: IcoNumber
     how-to: How It Works
     look-icon: Look For Icon
     guess-icon: Guess Icon
+
+about:
+  developer: Developer
+  note:
+    Do you want to reach out, for any concerns
+    (suggestions, support, professional, claims, etc),
+    you are highly encouraged.
+
+
+
+    Thanks
 
 home:
   description:

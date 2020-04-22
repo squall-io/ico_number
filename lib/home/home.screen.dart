@@ -9,7 +9,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
     WidgetFactory.getScaffold(
-      title: 'screen.title.home',
+      context: context,
+      title: 'app-name',
       child: ListView(
         children: <Widget>[
           WidgetFactory.getPadding(

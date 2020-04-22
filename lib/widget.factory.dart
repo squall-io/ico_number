@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -16,6 +19,7 @@ class WidgetFactory {
 
   static Widget getScaffold({
     Widget child,
+    BuildContext context,
     @required String title,
     List<CustomActionButton> actionButtons,
   }) =>
@@ -23,7 +27,19 @@ class WidgetFactory {
       value: SystemUiOverlayStyle(),
       child: Scaffold(
         body: child ?? Container(),
-        appBar: AppBar(title: I18nText(title)),
+        appBar: AppBar(
+          title: I18nText(title),
+          actions: null == context ? null : <Widget>[
+            IconButton(
+              onPressed: () =>
+                showModalBottomSheet(
+                  context: context,
+                  builder: _getAboutWidget,
+                ),
+              icon: Icon(Icons.fingerprint),
+            ),
+          ],
+        ),
         floatingActionButton: Stack(
           children: actionButtons
             ?.map((actionButton) =>
@@ -39,6 +55,28 @@ class WidgetFactory {
           ?? [],
         ),
       ),
+    );
+
+  static Widget _getAboutWidget(BuildContext context) =>
+    ListView(
+      children: <Widget>[
+        ListTile(
+          trailing: Image.asset('assets/img/ic_launcher.png'),
+          title: I18nText('app-name'),
+          subtitle: Text('1.0.0 (MIT)'),
+        ),
+        ListTile(
+          title: I18nText('about.developer'),
+          subtitle: InkWell(
+            child: Text('Salathiel | salathiel@genese.name', style: TextStyle(color: Colors.lightBlue)),
+            onTap: () => launch('mailto:salathiel@genese.name'),
+          ),
+        ),
+        Divider(),
+        ListTile(
+          subtitle: I18nText('about.note'),
+        ),
+      ],
     );
 
 }
